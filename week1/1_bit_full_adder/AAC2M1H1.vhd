@@ -46,3 +46,9 @@ Sum, Cout: out std_logic
 end FullAdd;
 
 architecture behavioral of FullAdd is
+signal tmp1: std_logic;
+begin
+	tmp1 <= A xor B;
+	Sum	<= Cin xor (tmp1);
+	Cout <= (Cin and tmp1) or (A and B);
+end behavioral;
